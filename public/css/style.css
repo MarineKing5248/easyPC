@@ -1,0 +1,1360 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Quicksand, sans-serif;
+    color: #24292e;
+}
+
+/* SITEWIDE */
+/* HEADER SECTION */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    background-color: #24292e;
+    border: solid black;
+    margin-bottom: 50px;
+}
+
+header.appHeader {
+  position: fixed;
+  z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 980px;
+}
+
+#logo {
+    width: 80px;
+    height: 40px;
+}
+
+nav div.separator {
+    border: 1px #3c444c solid;
+    height: 22px;
+}
+
+nav div.headerLinks {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #2ebc4f;
+    font-size: 16px;
+}
+
+nav a.sitewideUser {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; /* must adapt to a links in header*/
+    width: fit-content;
+}
+
+nav img.sitewideProfilePic {
+    background-color: whitesmoke;
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+nav div.headerLinks a {
+    font-weight: bold;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 16px; /* has to match above with 16px */
+    padding: 10px;
+    margin: 0 5px;
+}
+
+nav div.headerLinks a:hover {
+    transition: 0.3s ease;
+    color: #2ebc4f;
+    background-color: darkslategray;
+}
+
+nav img.chatIcon {
+    width: 23px;
+    height: 23px;
+}
+
+/* FOOTER SECTION */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background: white;
+}
+footer.appFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+.footerCenterHolder {
+    width: 980px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* -----------------TOOLTIPS------------------- */
+nav img.friendsIcon {
+    width: 23px;
+    height: 23px;
+}
+
+nav span.tooltip {
+    visibility: hidden;
+    font-size: 14px;
+    width: 80px;
+    padding: 0 45px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    transform: translate(-28px, 48px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+nav span.friendReq {
+    width: 62px;
+    transform: translate(-19px, 48px);
+}
+nav span.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  transparent  transparent #555 transparent;
+}
+nav a.sitewideUser:hover .tooltip {
+    transition-delay: 0.6s;
+    visibility: visible;
+    opacity: 1;
+}
+/* -----------------/TOOLTIP------------------- */
+
+/* MINOR SITEWIDE THINGS */
+
+.errorTemplate {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #edf0f5;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 200px;
+}
+
+.errorTemplate img {
+    width: 67px;
+    height: 75px;
+}
+
+img#close {
+    width: 50px;
+}
+
+img#close:hover {
+    cursor: pointer;
+}
+
+p.errorMessage {
+    max-width: 310px;
+    margin: 10px auto;
+    color: tomato;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2ebc4f;
+    border-radius: 2px;
+    max-width: 100%;
+    height: 50px;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.button:hover {
+    cursor: pointer;
+    transition: 0.5s ease;
+    background-color: limegreen;
+}
+
+div.addFriendIcon {
+    background-image: url("/add_friend_white.png");
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+/* END SITEWIDE */
+
+/* -----------------WELCOME------------------- */
+
+.welcomeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    background: #edf0f5;
+}
+
+.welcomeBodyWrapper {
+    min-height:80vh;
+}
+
+.welcomeContainer .centerHolder {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* this width needs removing on mediaframe */
+    width: 980px;
+/*     min-height: 100vh; */
+    margin-bottom: 80px;
+}
+
+.welcomeContainer .greetings {
+    max-height: 380px;
+}
+
+.welcomeContainer .formHolder {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    z-index: 1;
+    background: white;
+    border: solid #dddfe2 1px;
+    border-radius: 6px;
+    /*     this width to be fixed */
+    width: 450px;
+    height: fit-content;
+    min-height: 260px;
+}
+
+.welcomeContainer form {
+    margin-bottom: 15px;
+}
+
+.welcomeContainer div.formHolder h3 {
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+.welcomeContainer div.formHolder .input_holder {
+    margin-bottom: 15px;
+}
+
+.welcomeContainer div.formHolder .input_holder p {
+    font-size: 0.98rem;
+}
+
+.welcomeContainer div.formHolder input {
+    border: 1px solid #bdc7d8;
+    height: 40px;
+    min-width: 310px;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.welcomeContainer p.passWarning {
+    transform: translateY(16px);
+}
+
+.welcomeContainer p.terms {
+    width: 310px;
+    font-size: 14px;
+}
+
+.welcomeContainer button {
+    margin-top: 18px;
+    margin-bottom: 15px;
+    min-width: 100%;
+    height: 50px;
+    font-size: 20px;
+    background-color: #2ebc4f;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+.welcomeContainer button:hover {
+    cursor: pointer;
+    transition: 0.5s ease;
+    background-color: mediumseagreen;
+}
+
+/* WELCOME MICRODETAILS */
+.welcomeContainer h1 {
+    font-size: 70px;
+}
+
+#funkyChicken {
+  font-weight: bold;
+  color: goldenrod;
+}
+
+#funkyPic {
+  width: 80px;
+  height: 80px;
+}
+
+span.bounce-in-top {
+  -webkit-animation: bounce-in-top 1.1s both;
+	        animation: bounce-in-top 1.1s both;
+}
+.slide-in-blurred-top2 {
+    -webkit-animation: slide-in-blurred-top 0.8s cubic-bezier(0.23, 1, 0.32, 1)
+        1.12s both;
+    animation: slide-in-blurred-top 0.8s cubic-bezier(0.23, 1, 0.32, 1) 1.12s
+        both;
+}
+
+.flicker-in-1 {
+    -webkit-animation: flicker-in-1 7s linear 1s both;
+    animation: flicker-in-1 7s linear 1s both;
+}
+
+.fade-in {
+    -webkit-animation: fade-in 8.5s cubic-bezier(0.86, 0, 0.07, 1) 1.5s both;
+    animation: fade-in 8.5s cubic-bezier(0.86, 0, 0.07, 1) 2s both;
+}
+.fade-in2 {
+    -webkit-animation: fade-in 14s cubic-bezier(0.86, 0, 0.07, 1) 2.5s both;
+    animation: fade-in 14s cubic-bezier(0.86, 0, 0.07, 1) 2s both;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.welcomeContainer h2 {
+    margin-top: 40px;
+    font-size: 35px;
+}
+
+.welcomeContainer p.fadein {
+    margin-top: 35px;
+    font-size: 20px;
+}
+
+/* -------------- APP HOMEPAGE------------------- */
+
+.appContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    background: #edf0f5;
+}
+
+.userProfileWrapper {
+    width: 800px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+/*     border: dashed blue; */
+}
+
+.necessaryEvil {
+/*        border: 1px solid red; */
+       max-width: 250px;
+}
+
+.appContainer .centerHolder {
+    position: relative;
+    /* this width needs removing on mediaframe */
+    width: 980px;
+    min-height: 80vh;
+    margin-bottom: 80px;
+}
+
+.appContainer section.appBody {
+    margin-top: 100px;
+}
+
+.appContainer .profileContainer {
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.appContainer .profilePicContainer {
+    margin: auto;
+}
+
+.appContainer .profileContainer div.circleWindow {
+    cursor: pointer;
+    border: 0.5px solid #bdc7d8;
+    position: relative;
+    border-radius: 200px;
+    max-width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+.appContainer .profileContainer div.two {
+    cursor:auto;
+}
+
+
+.appContainer .profileContainer img {
+    max-width: 100%;
+    height: 100%; /* ADAPT THIS TO MAX WIDTH ABOVE (profilecontainer) */
+    object-fit: cover;
+    background-color: white;
+}
+
+.appContainer .profileContainer div.darkEditProfile {
+    position: absolute;
+    bottom: 0px;
+    width: 250px;
+    height: 30%;
+    background-color: rgba(36, 41, 46, 0.88);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+    pointer-events: none;
+}
+
+.appContainer div.editPicContainer {
+    position: relative;
+}
+
+.appContainer img.editPic {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 0;
+    background-color: transparent;
+    bottom: 5px;
+    right: 0px;
+}
+
+.appContainer img.editPic:hover {
+    cursor: pointer;
+}
+
+.appContainer h1.userfullname {
+    margin-top: 20px;
+    font-size: 35px;
+}
+
+.appContainer div.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(36, 41, 46, 0.9);
+    width: 100%;
+}
+
+.appContainer div.overlay div.uploaderModal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    border-radius: 3px;
+    height: 80vh;
+    width: 100vh;
+}
+
+.appContainer div.overlay #close {
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    margin-top: 18px;
+}
+
+.appContainer div.overlay h2 {
+    text-align: center;
+    font-size: 35px;
+    margin: 30px;
+}
+
+.appContainer #fileButton {
+    display: none;
+}
+
+.appContainer #labelUploadButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2ebc4f;
+    border-radius: 2px;
+    width: 280px;
+    height: 50px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+.appContainer #labelUploadButton:hover {
+    cursor: pointer;
+    transition: 0.5s ease;
+    background-color: mediumseagreen;
+}
+
+/* USER BIO COMPONENT */
+
+.appContainer div.userBio.button {
+    margin-bottom: 50px;
+    transform: translateY(45px);
+}
+
+.appContainer div.enterBio.button {
+    transform: translateY(45px);
+    margin-bottom: 50px;
+}
+
+.appContainer .profileContainer h4 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.appContainer .profileContainer textarea {
+    width: 100%;
+    height: 45px;
+    border-radius: 3px;
+    resize: none;
+}
+
+.appContainer p#bioComment {
+    font-style: italic;
+    font-family: "Indie Flower";
+    font-size: 20px;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+
+.other div.friendButton {
+    transform: translateY(30px)
+}
+
+/* -------------- OTHER FRIEND/PROFILE PAGE -------------- */
+
+.otherUserProfileWrapper {
+    width: 800px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+/*     border: dashed blue; */
+}
+
+/* -------------- FRIENDS PAGE -------------- */
+
+.appContainer .friendsContainer h1 {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.appContainer .friendsContainer h1 img {
+    margin: 0 10px;
+    height: 25px;
+}
+
+p.badNews {
+    font-weight: bold;
+    margin: 50px auto;
+    color: lightsalmon;
+}
+
+.appContainer .friendsContainer div.allWannabes,
+.appContainer .friendsContainer div.allFriends {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 800px;
+/*             border: yellow dashed 2px; */
+}
+
+.appContainer .friendsContainer div.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+    width: 350px;
+    height: 120px;
+    border: 1px #dddfe2 solid;
+}
+
+.appContainer .friendsContainer div.nameImage {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    /*         border: 1px dashed blue; */
+    height: 100%;
+}
+
+.appContainer .friendsContainer .imageLink {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 120px;
+}
+
+.appContainer .friendsContainer img.miniProfile {
+    max-width: 110px;
+    height: 90%;
+    background-color: white;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.appContainer .friendsContainer .nameLink {
+    color: #365899;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    font-size: 16px;
+}
+.appContainer .friendsContainer .nameLink:hover {
+    text-decoration: underline;
+    font-weight: ;
+}
+
+.appContainer .friendsContainer div.button {
+    width: 90px;
+    height: 30px;
+    margin: 7px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.appContainer .friendsContainer div.button.salmon {
+    background-color: salmon;
+}
+.appContainer .friendsContainer div.button.salmon:hover {
+    background-color: lightsalmon;
+}
+
+.friendsContainer div.addFriendIcon {
+    background-size: 18px;
+    height: 18px;
+    width: 18px;
+}
+
+/* -------------- ONLINE USERS ----------------- */
+
+.appContainer .online div.block {
+    position: relative;
+    border: none;
+    height: 60px;
+    max-width: 230px;
+    justify-content: flex-between;
+}
+
+.appContainer .nameImage {
+    max-width: 90%;
+}
+
+.appContainer .online img.miniProfile {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.appContainer .online a.nameLink {
+    font-size: 15px;
+}
+
+.appContainer .online i.onlineDot {
+    position: absolute;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    background-color: #44b62e;
+    border-radius: 20px;
+    transform: translateY(1px);
+}
+
+
+/* -------------- ONLINE SITEWIDE ----------------- */
+
+.onlineContainer_sw {
+    border-left: solid #bdc7d8 1.5px;
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+    top: 52px; /*must match header height */
+    right: 0;
+}
+
+.linkWrapper {
+/*     border: 1px solid black; */
+    text-decoration: none;
+    color: #24292e;
+}
+
+.block_sw {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: none;
+    height: 38px;
+    max-width: 100%;
+    justify-content: flex-between;
+}
+
+.block_sw:hover {
+    background-color: azure;
+}
+
+.appContainer .nameImage_sw {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+}
+
+img#onlineIcon_sw {
+    width: 16px;
+    margin-right: 5px;
+}
+
+.onlineContainer_sw div.nameLink_sw {
+    margin-left: 5px;
+    font-size: 12.5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.onlineContainer_sw h1 {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin: 10px 12px;
+}
+
+.onlineContainer_sw img.miniProfile_sw {
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    object-fit: cover;
+    background-color: white;
+    border: 0.5px solid #bdc7d8;
+    margin-left: 8px;
+}
+
+.onlineContainer_sw i.onlineDot {
+    position: absolute;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    background-color: #44b62e;
+    border-radius: 20px;
+    transform: translate(-10px, 1px);
+}
+
+.onlineContainer_sw p.badNews {
+    font-size: 13px;
+    color: lightsalmon;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 1px;
+    text-align: center;
+}
+
+
+/* ----------------- PUBLIC CHAT ---------------- */
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/*     border: 1px dashed black; */
+}
+
+.chatWrapper {
+/*     border: 1px dashed blue; */
+border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+       -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.chatContainer div#chatField {
+    overflow: auto;
+    height: 380px;
+    border: 1px solid #bdc7d8;
+    border-radius: 3px;
+    width: 100%;
+    background-color: white;
+    position:relative;
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.chatContainer div.singleChat {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 7px;
+    height: fit-content;
+/*     border: solid black 1px; */
+}
+.chatContainer div.singleChat:first-child {
+    margin-top: 25px;
+}
+.chatContainer div.singleChat:last-child {
+    margin-bottom: 25px;
+}
+
+.chatContainer .singleChat div.main_avatarNameHold {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    min-width: 240px;
+    max-width: 240px;
+/*     border: solid yellow 1px; */
+}
+.chatContainer .singleChat div.avatarNameHold {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    width: 50%;
+/*     border: solid yellow 1px; */
+}
+
+.chatContainer .avatarNameHold p {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.chatContainer .bubbleWrapper {
+/*     border: 1px black solid; */
+    width: 100%;
+}
+
+.chatContainer .singleChat .main_speech-bubble {
+    font-family: sans-serif;
+    font-size: 14px;
+    display: flex;
+    background: salmon;
+    border-radius: 8px;
+    line-height: 1.3;
+    margin: 0 25px;
+    margin-top: 10px;
+    width: fit-content;
+    min-width: 120px;
+    min-height: 60px;
+    padding: 15px;
+    position: relative;
+    color: white;
+}
+.chatContainer .singleChat .speech-bubble {
+    font-family: sans-serif;
+    font-size: 14px;
+    display: flex;
+    background: #efefef;
+    border-radius: 8px;
+    line-height: 1.3;
+    margin-top: 10px;
+    width: min-content;
+    min-width: 120px;
+    min-height: 60px;
+    padding: 15px;
+    position: relative;
+}
+
+.main_speech-bubble p {
+    margin: 0 0 10px;
+}
+.speech-bubble p {
+    margin: 0 0 10px;
+}
+
+.main_speech-bubble::after {
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid salmon;
+    bottom: 0px;
+    content: "";
+    position: absolute;
+    right: -8px;
+}
+.speech-bubble::after {
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid #efefef;
+    bottom: 0px;
+    content: "";
+    position: absolute;
+    left: -8px;
+}
+
+.chatContainer .singleChat img {
+    max-width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    border: 0.5px solid #bdc7d8;
+    background-color: white;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.chatContainer h1 {
+    font-size: 30px;
+}
+
+.chatContainer h2 {
+    font-size: 13px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.chatContainer p.main_msgDate {
+    position: absolute;
+    font-size: 11px;
+    font-style: italic;
+    bottom: -5px;
+    right: 15px;
+}
+.chatContainer p.msgDate {
+    position: absolute;
+    font-size: 11px;
+    font-style: italic;
+    bottom: -5px;
+    right: 15px;
+}
+
+.chatContainer div.chatInput {
+    position: relative;
+    background-color: #778899a6;
+    width: 100%;
+    height: 118px;
+    border: #bdc7d8 solid 1px;
+    border-radius: 3px;
+}
+
+.chatContainer #chatTextArea {
+    background-color: white;
+    font-family: sans-serif;
+    width: 100%;
+    height: 75px;
+    resize: none;
+    text-indent: 10px;
+    padding-top: 8px;
+    border: none;
+}
+
+.chatContainer .chatEnter {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    bottom: 5px;
+    right: 12px;
+    width: 100px;
+    color: white;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+}
+.chatEnter:hover {
+    transition: 0.3s ease;
+    background-color: #b2bdc8;
+}
+
+.chatContainer .separatorChatPost {
+    position: absolute;
+    left: -12px;
+    top: 3px;
+    width: 1px;
+    height: 25px;
+    border: #b2bdc8 solid 1px
+}
+
+.chatContainer .enterChatMessage {
+    width: 26px;
+    height: 26px;
+    background: url("/reply-button.png") no-repeat;
+    background-size: 26px;
+    background-color: transparent;
+}
+
+/* -------------SEARCH BAR COMPONENT------------ */
+
+section.searchbarSwContainer {
+    position: absolute;
+    left: 270px;
+}
+
+.searchbarSwContainer input {
+    border: #1b1f23 solid 1px;
+    text-indent: 10px;
+    border-radius: 2px;
+    height: 30px;
+    width: 300px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 5px;
+    top: 2.5px;
+    width: 25px;
+    height: 25px;
+}
+
+.searchResults {
+    position: absolute;
+    width: 100%;
+    border-left: 1px solid #bdc7d89c;
+    border-right: 1px solid #bdc7d89c;
+    border-radius: 2px;
+    background-color: white;
+}
+
+a.searchResultLink {
+   display: block;
+   text-decoration: none;
+   font-size: 15px;
+   font-weight: bold;
+}
+a.searchResultLink:hover {
+    background-color: whitesmoke;
+}
+.searchResultLink:last-child {
+   border-bottom: solid 1px #bdc7d89c;
+}
+div.searchBlock {
+    display: flex;
+    align-items: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.searchBlock p {
+    margin-left: 8px;
+}
+
+.searchResultLink img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    object-fit: cover;
+    background-color: white;
+    border: 0.5px solid #bdc7d8;
+    margin-left: 8px;
+}
+
+/* -------------------- WALLPOSTS ------------------- */
+
+section.wallPostsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+/*     border: dashed red; */
+}
+
+div.wallPostDiv {
+    position: relative;
+    width: 90%;
+    height: 140px;
+    border-radius: 3px;
+    margin-top: 30px;
+    border-top: none;
+    background-color: #778899a6;
+}
+
+#wallTextArea {
+    width: 100%;
+    height: 100px;
+    padding: 20px 15px;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 15px;
+    resize: none;
+    border: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top: solid 0.5px #bdc7d8;
+    border-left: solid 0.5px #bdc7d8;
+    border-right: solid 0.5px #bdc7d8;
+    outline: none;
+}
+
+.share {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 2px;
+    bottom: 3px;
+    right: 12px;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
+.share:hover {
+    transition: 0.3s ease;
+    background-color: #b2bdc8 ;
+}
+
+div.separatorWallPost {
+    position: absolute;
+    left: -14px;
+    top: 3px;
+    width: 1px;
+    height: 25px;
+    border: #b2bdc8 solid 1px
+}
+
+.postWallButton {
+    width: 30px;
+    height: 30px;
+    background: url("/reply-button.png") no-repeat;
+    background-size: 30px 30px;
+}
+
+div.eachWallPost {
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-top: 15px;
+    background-color: white;
+    width: 90%;
+    border: solid 0.5px #bdc7d8;
+    height: fit-content;
+    min-height: 120px;
+    border-radius: 3px;
+}
+
+div.wallPostNames {
+    display: flex;
+    align-items: center;
+    margin: 5px 10px;
+    font-size: 14px;
+}
+
+div.wallPostNames a {
+    text-decoration: none;
+    color:#365899;
+}
+div.wallPostNames a:hover {
+    text-decoration: underline;
+}
+
+.eachWallPost div.arrow {
+  margin: 0 5px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 6px solid darkslategray;
+}
+
+p.wallPostText {
+    padding: 2px 2px;
+    margin: 12px 15px;
+}
+
+a.miniProfile_wall_link {
+    height: 35px; /*must fit wall profile image*/
+}
+
+img.miniProfile_wall {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    object-fit: cover;
+    background-color: white;
+    border: 0.5px solid #bdc7d8;
+    margin-right: 5px;;
+}
+
+
+/* ----------MEDIA QUERIES SITEWIDE BELOW-------- */
+@media (max-width: 1000px) {
+    .welcomeContainer h1 {
+        font-size: 45px;
+        width: 100%;
+    }
+
+    .welcomeContainer h2 {
+        font-size: 28px;
+    }
+    .welcomeContainer div.greetings p {
+        font-size: 22px;
+    }
+
+    nav {
+        margin: 0 30px;
+        width: 100%;
+    }
+
+    .footerCenterHolder {
+        width: 100%;
+        margin: 0 30px;
+    }
+
+    .welcomeContainer div.greetings {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+    }
+
+    .welcomeContainer .centerHolder {
+        /* this width needs removing on mediaframe */
+        width: 100%;
+    }
+    .welcomeContainer .formHolder {
+        margin: 0 30px;
+    }
+}
+
+@media (max-width: 854px) {
+    .welcomeContainer div.formHolder {
+        margin-left: 0px;
+    }
+
+    .welcomeContainer h1 {
+        font-size: 38px;
+        width: 100%;
+    }
+
+    .welcomeContainer h2 {
+        font-size: 20px;
+    }
+
+    .welcomeContainer div.greetings p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcomeContainer .centerHolder {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .welcomeContainer h2,
+    div.greetings p {
+        display: none;
+    }
+
+    .welcomeContainer h1 {
+        margin-bottom: 30px;
+    }
+
+    .welcomeContainer div.greetings {
+        margin: 0;
+    }
+
+    .welcomeContainer div.formHolder {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .welcomeContainer h1 {
+        font-size: 30px;
+    }
+
+    .welcomeContainer div.formHolder {
+        margin: 0 10px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 425px) {
+    #logo {
+        width: 70px;
+        height: 40px;
+    }
+
+    nav div.headerLinks {
+        font-size: 17px;
+    }
+
+    nav div.headerLinks a {
+        margin: 0;
+        font-size: 17px; /* has to match above with 20px */
+    }
+
+    nav {
+        margin: 0 15px;
+    }
+
+    .footerCenterHolder {
+        margin: 0 15px;
+    }
+
+    footer p {
+        font-size: 15px;
+    }
+
+    .welcomeContainer h1 {
+        font-size: 25px;
+    }
+
+    .welcomeContainer div.formHolder {
+        margin: 0 10px;
+        width: 300px;
+    }
+
+    .welcomeContainer form {
+        width: 220px;
+    }
+
+    .welcomeContainer div.formHolder p.terms {
+        width: 220px;
+    }
+
+    .welcomeContainer div.formHolder input {
+    min-width: 220px;
+}
+
+/* ANIMATIONS BELOW */

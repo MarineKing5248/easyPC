@@ -18,8 +18,7 @@ header {
     align-items: center;
     width: 100%;
     height: 52px;
-    background-color: #24292e;
-    border: solid black;
+    background-color: rgb(32, 32, 32);
     margin-bottom: 50px;
 }
 
@@ -31,13 +30,8 @@ header.appHeader {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 980px;
-}
+    width: 100%
 
-#logo {
-    width: 80px;
-    height: 40px;
 }
 
 nav div.separator {
@@ -46,6 +40,16 @@ nav div.separator {
 }
 
 nav div.headerLinks {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #2ebc4f;
+    font-size: 16px;
+}
+
+nav div.headerLinksR {
+    margin-left: 50px;
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -72,6 +76,7 @@ nav img.sitewideProfilePic {
 }
 
 nav div.headerLinks a {
+
     font-weight: bold;
     text-decoration: none;
     color: whitesmoke;
@@ -82,8 +87,8 @@ nav div.headerLinks a {
 
 nav div.headerLinks a:hover {
     transition: 0.3s ease;
-    color: #2ebc4f;
-    background-color: darkslategray;
+    color: #2e80bb;
+    text-decoration: underline;+
 }
 
 nav img.chatIcon {
@@ -98,7 +103,8 @@ footer {
     align-items: center;
     height: 50px;
     width: 100%;
-    background: white;
+    background: rgb(32, 32, 32);
+    color: white;
 }
 footer.appFooter {
     position: fixed;
@@ -107,9 +113,8 @@ footer.appFooter {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 15px;
 }
-
 .footerCenterHolder {
     width: 980px;
     display: flex;
@@ -241,8 +246,14 @@ div.addFriendIcon {
     position: relative;
     /* this width needs removing on mediaframe */
     width: 980px;
-/*     min-height: 100vh; */
-    margin-bottom: 80px;
+    align-items: center;
+}
+.welcomeContainer .centerHolder .welcomeImg {
+    width: 80%;
+    height: auto;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .welcomeContainer .greetings {
@@ -318,7 +329,8 @@ div.addFriendIcon {
 
 /* WELCOME MICRODETAILS */
 .welcomeContainer h1 {
-    font-size: 70px;
+    font-size: 30px;
+    word-wrap: break-word;
 }
 
 #funkyChicken {
@@ -345,17 +357,6 @@ span.bounce-in-top {
 .flicker-in-1 {
     -webkit-animation: flicker-in-1 7s linear 1s both;
     animation: flicker-in-1 7s linear 1s both;
-}
-
-.fade-in {
-    -webkit-animation: fade-in 8.5s cubic-bezier(0.86, 0, 0.07, 1) 1.5s both;
-    animation: fade-in 8.5s cubic-bezier(0.86, 0, 0.07, 1) 2s both;
-}
-.fade-in2 {
-    -webkit-animation: fade-in 14s cubic-bezier(0.86, 0, 0.07, 1) 2.5s both;
-    animation: fade-in 14s cubic-bezier(0.86, 0, 0.07, 1) 2s both;
-    margin-top: 40px;
-    font-size: 18px;
 }
 
 .welcomeContainer h2 {
@@ -1330,10 +1331,6 @@ img.miniProfile_wall {
 
     .footerCenterHolder {
         margin: 0 15px;
-    }
-
-    footer p {
-        font-size: 15px;
     }
 
     .welcomeContainer h1 {

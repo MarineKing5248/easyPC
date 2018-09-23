@@ -10,7 +10,38 @@ CREATE TABLE users(
   email VARCHAR(200) NOT NULL UNIQUE,
   password VARCHAR(100) NOT NULL,
   avatar TEXT,
+  user_bio VARCHAR(600),
+);
+
+CREATE TABLE builder(
+  id SERIAL PRIMARY KEY,
+  builder_id INT REFERENCES users(id) NOT NULL,
+);
+
+CREATE TABLE supplier(
+  id SERIAL PRIMARY KEY,
+  companyname VARCHAR(200) NOT NULL,
+  email VARCHAR(200) NOT NULL UNIQUE,
+  password VARCHAR(100) NOT NULL,
+  avatar TEXT,
   user_bio VARCHAR(600)
+);
+
+CREATE TABLE items(
+  id SERIAL PRIMARY KEY,
+  item_id INT REFERENCES supplier(id) NOT NULL,
+  power INT,
+  price INT,
+  overclock INT NOT NULL DEFAULT 0,
+  sli INT NOT NULL DEFAULT 0,
+  sli3 INT NOT NULL DEFAULT 0,
+  module INT NOT NULL DEFAULT 1,
+  volumn INT NOT NULL,
+  size INT NOT NULL,
+  usb INT NOT NULL,
+  usb_c INT NOT NULL,
+  others VARCHAR(600) NOT NULL
+
 );
 
 CREATE TABLE friend_requests(

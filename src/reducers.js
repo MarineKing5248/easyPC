@@ -1,17 +1,5 @@
 //REDUCER- PURPOSE: used in Stat.js. Recreates an updated copy of STATE based on action that it takes in 2nd argument.
 import { createStore } from "redux";
-import { cartReducer } from "react-redux-shopping-cart";
-
-const rootReducer = () =>
-  combineReducers({
-    //other reducers
-    cart: cartReducer
-  });
-
-const store = createStore(
-  rootReducer()
-  //middleware and enchancer composition
-);
 
 const INITIAL_STATE = {
   allFriendsWannabes: [],

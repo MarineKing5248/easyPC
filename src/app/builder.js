@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import HardwareList from "./hardwareList";
 import HardwareDetail from "./hardwareDetail";
 import Car from "./Car";
-import { Button } from "reactstrap";
 
 class Builder extends Component {
   constructor() {
@@ -64,9 +63,6 @@ class Builder extends Component {
   render() {
     return (
       <div className="row">
-        <div>
-          <Button color="danger">danger</Button>
-        </div>
         <HardwareList
           items={this.props.items}
           listClick={this.handleListClick}
@@ -86,22 +82,22 @@ Builder.defaultProps = {
     {
       id: 1,
       category: "CSS",
-      title: "CSS权威指南",
-      author: "Eric A. Meyer",
+      title: "CPU",
+      author: "MSI",
       price: 42
     },
     {
       id: 2,
       category: "JS",
-      title: "JavaScript高级程序设计",
-      author: "Nicholas C.Zakas",
+      title: "RAM",
+      author: "MSI",
       price: 69
     },
     {
       id: 3,
       category: "CSS",
-      title: "精通CSS:高级Web标准解决方案",
-      author: "巴德,科利森,莫尔",
+      title: "Mainboard",
+      author: "MSI",
       price: 25
     }
   ]

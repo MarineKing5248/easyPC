@@ -2,7 +2,7 @@ import React from "react";
 import axios from "../axios";
 import { Link } from "react-router-dom";
 
-export default class Registration extends React.Component {
+export default class Supplierregistration extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -12,15 +12,14 @@ export default class Registration extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    let registerInput = {
-      firstname: this.firstname,
-      lastname: this.lastname,
+    let input = {
+      company: this.company,
       email: this.email,
       password: this.password
     };
-    console.log(registerInput);
-    axios.post("/submit-registration", registerInput).then(res => {
-      console.log("loggedIn response obj (based on cookie): ", res.data);
+    console.log(input);
+    axios.post("/supplier-registration", input).then(res => {
+      console.log("loggedIn response obj (based on cookie): ", res);
       if (res.data.loggedIn) {
         location.replace("/");
       } else if (res.data.weakPassword) {
@@ -38,7 +37,7 @@ export default class Registration extends React.Component {
   render() {
     return (
       <div className="registrationContainer">
-        <h3>User Registion:</h3>
+        <h3>Supplier Register Channel:</h3>
         {this.state.error && (
           <p className="errorMessage">Please fill out all input fields!</p>
         )}
@@ -50,23 +49,15 @@ export default class Registration extends React.Component {
         )}
         <form>
           <div className="input_holder">
-            <p>First Name</p>
+            <p>Company Name</p>
             <input
               onChange={this.handleChange}
               type="text"
-              name="firstname"
-              placeholder="Your first name"
+              name="company"
+              placeholder="company name"
             />
           </div>
-          <div className="input_holder">
-            <p>Last Name</p>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="lastname"
-              placeholder="Your last name"
-            />
-          </div>
+
           <div className="input_holder">
             <p>E-mail Address</p>
             <input
@@ -89,7 +80,7 @@ export default class Registration extends React.Component {
           <button onClick={this.submit}>submit</button>
           {this.state.error && <div className="error">Please try again!</div>}
           <div className="login">
-            Click <Link to="/login">here</Link> to Log in!
+            Click <Link to="/supplierlogin">here</Link> to Log in!
             <p className="terms">
               By clicking on "Register", you agree to our terms and conditions.
             </p>

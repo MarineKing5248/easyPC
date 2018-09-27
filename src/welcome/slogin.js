@@ -2,7 +2,7 @@ import React from "react";
 import axios from "../axios";
 import { Link } from "react-router-dom";
 
-export default class Supplierlogin extends React.Component {
+export default class SLogin extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -21,7 +21,7 @@ export default class Supplierlogin extends React.Component {
       password: this.password
     };
     console.log(loginInput);
-    axios.post("/supplier-check", loginInput).then(res => {
+    axios.post("/login-check", loginInput).then(res => {
       console.log("login response:", res);
       if (res.data.loggedIn) {
         location.replace("/");
@@ -41,21 +41,21 @@ export default class Supplierlogin extends React.Component {
   render() {
     return (
       <div className="loginContainer">
-        <h3>Supplier Sign In Channel:</h3>
+        <h3>Welcome back my loyal staffs:D</h3>
         {this.state.blankFields && (
           <p className="errorMessage">Please fill out all input fields!</p>
         )}
         {this.state.error && (
-          <p className="errorMessage">Wrong Companyname or Password!</p>
+          <p className="errorMessage">Wrong Username or Password!</p>
         )}
         <form>
           <div className="input_holder">
-            <p>E-mail Address</p>
+            <p>Job Number</p>
             <input
               onChange={this.handleChange}
               type="text"
               name="email"
-              placeholder="your_email@example.com"
+              placeholder="eg:123456789"
             />
           </div>
           <div className="input_holder">
@@ -69,7 +69,8 @@ export default class Supplierlogin extends React.Component {
           </div>
           <button onClick={this.submit}>submit</button>
           <div className="login">
-            Click <Link to="/supplierregistration">here</Link> to Registrate!
+            New staff Click <Link to="/staffregistration">here</Link> to
+            Registrate!
           </div>
           {this.state.error && <div className="error">Try again!</div>}
         </form>

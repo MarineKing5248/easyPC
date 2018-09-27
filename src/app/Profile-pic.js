@@ -34,15 +34,14 @@ export default class ProfilePic extends React.Component {
               src={avatar || "/default_image.png"}
             />
             {this.state.editProfile && (
-              <div className="darkEditProfile">Edit Profile</div>
+              <div className="darkEditProfile">Change Portrait</div>
             )}
           </div>
-          <img
-            onClick={clickHandler}
-            src="/edit_user_icon.png"
-            className="editPic"
-          />
         </div>
+
+        <h1 className="userfullname">
+          {firstname} {lastname}
+        </h1>
       </div>
     );
   }

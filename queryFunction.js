@@ -10,21 +10,8 @@ module.exports.createUser = function(firstname, lastname, email, password) {
     );
 };
 
-module.exports.createSupplier = function(company, email, password) {
-    return db.query(
-        `INSERT INTO supplier (company, email, password) VALUES ($1, $2, $3) RETURNING id`,
-        [company || null, email || null, password || null]
-    );
-};
-
 module.exports.fetchPassword = function(email) {
     return db.query(`SELECT password FROM users WHERE email = $1`, [
-        email || null
-    ]);
-};
-
-module.exports.fetchPasswordC = function(email) {
-    return db.query(`SELECT password FROM supplier WHERE email = $1`, [
         email || null
     ]);
 };
@@ -55,6 +42,88 @@ module.exports.fetchOtherUsersData = function(id) {
     return db.query(`SELECT * FROM users WHERE id = $1`, [id || null]);
 };
 
+module.exports.checkFriendStatus = function(userId, otherUserId) {
+    return db.query(
+        `SELECT * FROM friend_requests WHERE (sender_id = $1 AND receiver_id = $2) OR (sender_id = $2 AND receiver_id = $1)`,
+        [userId || null, otherUserId || null]
+    );
+};
+
+module.exports.addFriend = function(sender_id, receiver_id, status) {
+    return db.query(
+        `INSERT INTO friend_requests (sender_id, receiver_id, status)
+                      VALUES ($1, $2, $3)`,
+        [sender_id || null, receiver_id || null, status || null]
+    );
+};
+
+module.exports.acceptFriendReq = function(userId, otherUserId) {
+    return db.query(
+        `UPDATE friend_requests SET status = 2 WHERE (sender_id = $1 AND receiver_id = $2) OR (sender_id = $2 AND receiver_id = $1)`,
+        [userId || null, otherUserId || null]
+    );
+};
+
+module.exports.deleteFriendRow = function(userId, otherUserId) {
+    return db.query(
+        `DELETE FROM friend_requests WHERE (sender_id = $1 AND receiver_id = $2) OR (sender_id = $2 AND receiver_id = $1)`,
+        [userId || null, otherUserId || null]
+    );
+};
+
+module.exports.fetchFriendsWannabes = function(userId) {
+    return db.query(
+        `
+          SELECT users.id, users.firstname, users.lastname, users.avatar, friend_requests.status
+          FROM friend_requests
+          JOIN users
+          ON (status = 1 AND receiver_id = $1 AND sender_id = users.id)
+          OR (status = 2 AND receiver_id = $1 AND sender_id = users.id)
+          OR (status = 2 AND sender_id = $1 AND receiver_id = users.id)`,
+        [userId || null]
+    );
+};
+
+module.exports.getOnlineUsers = function(arrayUserIds) {
+    return db.query(
+        `SELECT id, firstname, lastname, avatar FROM users WHERE id = ANY($1)`,
+        [arrayUserIds || null]
+    );
+};
+
+///////////////////////////////POSTGRES CHAT////////////////////////////////////
+
+module.exports.postChatMessage = function(userId, message) {
+    return db.query(
+        `INSERT INTO chat (messages, sender_id) VALUES ($2, $1)
+         RETURNING id`,
+        [userId || null, message || null]
+    );
+};
+
+module.exports.fetchChatDataMounted = function() {
+    return db.query(
+        `SELECT chat.id, chat.messages, chat.created_at, chat.sender_id,
+         users.firstname, users.lastname, users.avatar
+         FROM chat
+         JOIN users
+         ON (chat.sender_id = users.id)
+         ORDER BY chat.id DESC LIMIT 10`
+    );
+};
+
+module.exports.fetchLastMessage = function(chatId) {
+    return db.query(
+        `SELECT chat.id, chat.messages, chat.created_at, chat.sender_id,
+         users.firstname, users.lastname, users.avatar
+         FROM chat
+         JOIN users
+         ON (chat.sender_id = users.id)
+         WHERE chat.id = $1`,
+        [chatId]
+    );
+};
+
 module.exports.fetchSearchedUsers = function(search) {
     search += "%";
     return db.query(
@@ -63,5 +132,43 @@ module.exports.fetchSearchedUsers = function(search) {
          WHERE (firstname ILIKE $1) OR (lastname ILIKE $1)
          ORDER BY lastname ASC LIMIT 4`,
         [search]
+    );
+};
+
+module.exports.postWall = function(
+    id,
+    otherUserId,
+    text,
+    firstname_sender,
+    lastname_sender,
+    avatar_sender
+) {
+    return db.query(
+        `INSERT INTO wall (sender_id, receiver_id, wallposts,
+         firstname_sender, lastname_sender, avatar_sender) VALUES ($1, $2, $3, $4, $5, $6)
+         RETURNING id`,
+        [
+            id,
+            otherUserId,
+            text || null,
+            firstname_sender || null,
+            lastname_sender || null,
+            avatar_sender || null
+        ]
+    );
+};
+
+module.exports.fetchWallPosts = function(otherUserId) {
+    return db.query(
+        `SELECT wall.id, wall.wallposts, wall.sender_id, wall.firstname_sender,
+         wall.lastname_sender, wall.avatar_sender, wall.receiver_id,
+         wall.created_at, users.firstname as firstname_receiver,
+         users.lastname as lastname_receiver, users.avatar as avatar_receiver
+         FROM wall
+         JOIN users
+         ON (wall.receiver_id = users.id)
+         WHERE (wall.receiver_id = $1)
+         ORDER BY created_at DESC LIMIT 5`,
+        [otherUserId]
     );
 };

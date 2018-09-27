@@ -86,7 +86,7 @@ export default class SearchbarSw extends React.Component {
           className="searchBar"
           type="text"
           name="searchBar"
-          placeholder="Find a product..."
+          placeholder="Find what you want..."
         />
         <img className="searchIcon" src="/search.png" />
         {searchedUsersArray && searchResults}

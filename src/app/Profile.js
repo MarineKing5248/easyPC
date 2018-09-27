@@ -7,16 +7,16 @@ export default function Profile(props) {
 
   let buttonText;
   if (!user_bio) {
-    buttonText = "Add Bio";
+    buttonText = "Add feeling";
   } else {
-    buttonText = "Edit Bio";
+    buttonText = "Chang feeling";
   }
 
   const addBioButton = (
     <div>
-      {user_bio && <h4>About me:</h4>}
+      {user_bio && <h4>How u feel?</h4>}
       <p id="bioComment">{user_bio}</p>
-      <div onClick={toggleBioInputField} className="button userBio">
+      <div onClick={toggleBioInputField} className="buttons userBio">
         {buttonText}
       </div>
     </div>
@@ -29,7 +29,7 @@ export default function Profile(props) {
         onKeyDown={postBio}
         defaultValue={user_bio}
       />
-      <div htmlFor="textArea" onClick={postBio} className="button enterBio">
+      <div htmlFor="textArea" onClick={postBio} className="buttons enterBio">
         Save
       </div>
     </div>

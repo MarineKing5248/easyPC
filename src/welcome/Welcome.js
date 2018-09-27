@@ -2,8 +2,8 @@ import React from "react";
 import { HashRouter, Route } from "react-router-dom";
 import Registration from "./Registration";
 import Login from "./Login";
-import Supplierregistration from "./sregistration";
-import Supplierlogin from "./slogin";
+import SRegistration from "./sregistration";
+import SLogin from "./slogin";
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
@@ -16,7 +16,7 @@ export default function Welcome() {
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
               <Link to="/career">Career</Link>
-              <Link to="/supplierlogin">Supplier</Link>
+              <Link to="/stafflogin">Staff</Link>
               <Link to="/login">User</Link>
             </div>
           </nav>
@@ -40,12 +40,9 @@ export default function Welcome() {
                 {/* LOGIN / SIGNUP*/}
                 <Route path="/login" component={Login} />
                 {/*Supplier LOGIN / SIGNUP*/}
-                <Route path="/supplierlogin" component={Supplierlogin} />
+                <Route path="/stafflogin" component={SLogin} />
                 {/*Supplier Registration*/}
-                <Route
-                  path="/supplierregistration"
-                  component={Supplierregistration}
-                />
+                <Route path="/staffregistration" component={SRegistration} />
               </div>
             </div>
           </div>

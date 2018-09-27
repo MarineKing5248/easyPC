@@ -2,7 +2,7 @@ import React from "react";
 import axios from "../axios";
 import { Link } from "react-router-dom";
 
-export default class Supplierregistration extends React.Component {
+export default class SRegistration extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -12,14 +12,15 @@ export default class Supplierregistration extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    let input = {
-      company: this.company,
+    let registerInput = {
+      firstname: this.firstname,
+      lastname: this.lastname,
       email: this.email,
       password: this.password
     };
-    console.log(input);
-    axios.post("/supplier-registration", input).then(res => {
-      console.log("loggedIn response obj (based on cookie): ", res);
+    console.log(registerInput);
+    axios.post("/submit-registration", registerInput).then(res => {
+      console.log("loggedIn response obj (based on cookie): ", res.data);
       if (res.data.loggedIn) {
         location.replace("/");
       } else if (res.data.weakPassword) {
@@ -37,7 +38,7 @@ export default class Supplierregistration extends React.Component {
   render() {
     return (
       <div className="registrationContainer">
-        <h3>Supplier Register Channel:</h3>
+        <h3>New Staff Registion:</h3>
         {this.state.error && (
           <p className="errorMessage">Please fill out all input fields!</p>
         )}
@@ -49,22 +50,30 @@ export default class Supplierregistration extends React.Component {
         )}
         <form>
           <div className="input_holder">
-            <p>Company Name</p>
+            <p>First Name</p>
             <input
               onChange={this.handleChange}
               type="text"
-              name="company"
-              placeholder="company name"
+              name="firstname"
+              placeholder="Your first name"
             />
           </div>
-
           <div className="input_holder">
-            <p>E-mail Address</p>
+            <p>Last Name</p>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="lastname"
+              placeholder="Your last name"
+            />
+          </div>
+          <div className="input_holder">
+            <p>Job Number</p>
             <input
               onChange={this.handleChange}
               type="text"
               name="email"
-              placeholder="your_email@example.com"
+              placeholder="eg:12345678"
             />
           </div>
           <div className="input_holder">
@@ -80,9 +89,9 @@ export default class Supplierregistration extends React.Component {
           <button onClick={this.submit}>submit</button>
           {this.state.error && <div className="error">Please try again!</div>}
           <div className="login">
-            Click <Link to="/supplierlogin">here</Link> to Log in!
+            Click <Link to="/stafflogin">here</Link> to Log in!
             <p className="terms">
-              By clicking on "Register", you agree to our terms and conditions.
+              New staff member please use your Job Number to Log in:)
             </p>
           </div>
         </form>

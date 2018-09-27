@@ -2,10 +2,14 @@ import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from "../axios";
 import Profile from "./Profile";
-import Uploader from "./Uploader";
 import OtherProfile from "./Other-profile";
+import Uploader from "./Uploader";
 import SearchbarSw from "./Searchbar-sitewide";
 import Builder from "./builder.js";
+import Friends from "./Friends";
+import Online from "./Online";
+// import OnlineSitewide from "./Online-sitewide";
+import Chat from "./Chat";
 
 export default class App extends React.Component {
   constructor() {
@@ -93,12 +97,13 @@ export default class App extends React.Component {
               <img id="logo" src="/homepagelogo.png" alt="easyPC" />
               <SearchbarSw handleModalClick={this.handleModalClick} />
               <div className="headerLinks">
+                <Link className="sitewideUser" to="/chat">
+                  <img className="sitewideProfilePic" src="/help.png" />
+                  <span className="tooltip"> Help </span>
+                </Link>
                 <Link className="sitewideUser" to="/builder">
-                  My builder:
-                  <img
-                    className="sitewideProfilePic"
-                    src={"/headericon/headericon.png"}
-                  />
+                  <span className="tooltip"> My builder </span>
+                  <img className="sitewideProfilePic" src={"/computer.png"} />
                 </Link>
                 <Link className="sitewideUser" to="/">
                   {this.state.firstname}
@@ -106,6 +111,7 @@ export default class App extends React.Component {
                     className="sitewideProfilePic"
                     src={this.state.avatar || "/default_image.png"}
                   />
+                  <span className="tooltip"> Profile </span>
                 </Link>
                 <a href="/sign-out">Sign Out</a>
               </div>
@@ -127,6 +133,21 @@ export default class App extends React.Component {
                   />
                 )}
               />
+              <Route
+                exact
+                path="/user/:otherUserId"
+                render={props => (
+                  <OtherProfile rootId={this.state.id} routeProps={props} />
+                )}
+              />
+              {/* builder */}
+              <Route exact path="/friends" component={Friends} />
+
+              {/* ONLINE USERS*/}
+              <Route exact path="/online" component={Online} />
+
+              {/* CHAT COMPONENT*/}
+              <Route exact path="/chat" component={Chat} />
               {/* builder */}
               <Route exact path="/builder" component={Builder} />
               {/* UPLOADER(HIDDEN)*/}

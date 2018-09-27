@@ -89,11 +89,6 @@ nav div.headerLinks a:hover {
     text-decoration: underline;+
 }
 
-nav img.chatIcon {
-    width: 23px;
-    height: 23px;
-}
-
 /* FOOTER SECTION */
 footer {
     display: flex;
@@ -208,6 +203,19 @@ p.errorMessage {
     color: white;
     font-size: 1.4rem;
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e6fbb;
+    border-radius: 2px;
+    max-width: 100%;
+    height: 30px;
+    color: white;
+    font-size: 0.7rem;
+}
+
 
 .button:hover {
     cursor: pointer;
@@ -410,7 +418,7 @@ span.bounce-in-top {
 }
 
 .appContainer .profileContainer {
-    max-width: 250px;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -424,9 +432,8 @@ span.bounce-in-top {
     cursor: pointer;
     border: 0.5px solid #bdc7d8;
     position: relative;
-    border-radius: 200px;
-    max-width: 250px;
-    height: 250px;
+    max-width: 200px;
+    height: 200px;
     overflow: hidden;
 }
 .appContainer .profileContainer div.two {
@@ -444,11 +451,11 @@ span.bounce-in-top {
 .appContainer .profileContainer div.darkEditProfile {
     position: absolute;
     bottom: 0px;
-    width: 250px;
+    width: 120px;
     height: 30%;
     background-color: rgba(36, 41, 46, 0.88);
     color: white;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
     text-align: center;
     padding-top: 20px;
@@ -459,7 +466,7 @@ span.bounce-in-top {
     position: relative;
 }
 
-.appContainer img.editPic {
+/* .appContainer img.editPic {
     position: absolute;
     width: 25px;
     height: 25px;
@@ -471,7 +478,7 @@ span.bounce-in-top {
 
 .appContainer img.editPic:hover {
     cursor: pointer;
-}
+} */
 
 .appContainer h1.userfullname {
     margin-top: 20px;
@@ -540,9 +547,10 @@ span.bounce-in-top {
 
 /* USER BIO COMPONENT */
 
-.appContainer div.userBio.button {
-    margin-bottom: 50px;
-    transform: translateY(45px);
+.appContainer div.userBio.buttons {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    transform: translateY(35px);
 }
 
 .appContainer div.enterBio.button {
@@ -557,7 +565,7 @@ span.bounce-in-top {
 }
 
 .appContainer .profileContainer textarea {
-    width: 100%;
+    width: 80%;
     height: 45px;
     border-radius: 3px;
     resize: none;
@@ -602,7 +610,7 @@ span.bounce-in-top {
 p.badNews {
     font-weight: bold;
     margin: 50px auto;
-    color: lightsalmon;
+    color: red;
 }
 
 .appContainer .friendsContainer div.allWannabes,
@@ -754,8 +762,8 @@ p.badNews {
 }
 
 img#onlineIcon_sw {
-    width: 16px;
-    margin-right: 5px;
+    width: 100%;
+
 }
 
 .onlineContainer_sw div.nameLink_sw {
@@ -794,13 +802,18 @@ img#onlineIcon_sw {
 
 .onlineContainer_sw p.badNews {
     font-size: 13px;
-    color: lightsalmon;
+    color: red;
     font-weight: bold;
     margin-top: 50px;
     margin-left: 1px;
     text-align: center;
 }
 
+.helproompic {
+    height: 100px;
+    width: 100px;
+    border: 1px solid grey;
+}
 
 
 /* -------------SEARCH BAR COMPONENT------------ */
@@ -925,6 +938,255 @@ div.wallPostDiv {
 .share:hover {
     transition: 0.3s ease;
     background-color: #b2bdc8 ;
+}
+
+//* ----------------- PUBLIC CHAT ---------------- */
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/*     border: 1px dashed black; */
+}
+
+.chatWrapper {
+/*     border: 1px dashed blue; */
+border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+       -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.chatContainer div#chatField {
+    overflow: auto;
+    height: 380px;
+    border: 1px solid #bdc7d8;
+    border-radius: 3px;
+    width: 100%;
+    background-color: white;
+    position:relative;
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.chatContainer div.singleChat {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 7px;
+    height: fit-content;
+/*     border: solid black 1px; */
+}
+.chatContainer div.singleChat:first-child {
+    margin-top: 25px;
+}
+.chatContainer div.singleChat:last-child {
+    margin-bottom: 25px;
+}
+
+.chatContainer .singleChat div.main_avatarNameHold {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    min-width: 240px;
+    max-width: 240px;
+/*     border: solid yellow 1px; */
+}
+.chatContainer .singleChat div.avatarNameHold {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    width: 50%;
+/*     border: solid yellow 1px; */
+}
+
+.chatContainer .avatarNameHold p {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.chatContainer .bubbleWrapper {
+/*     border: 1px black solid; */
+    width: 100%;
+}
+
+.chatContainer .singleChat .main_speech-bubble {
+    font-family: sans-serif;
+    font-size: 14px;
+    display: flex;
+    background: rgb(69, 99, 189);
+    border-radius: 8px;
+    line-height: 1.3;
+    margin: 0 25px;
+    margin-top: 10px;
+    width: fit-content;
+    min-width: 120px;
+    min-height: 60px;
+    padding: 15px;
+    position: relative;
+    color: white;
+}
+.chatContainer .singleChat .speech-bubble {
+    font-family: sans-serif;
+    font-size: 14px;
+    display: flex;
+    background: #f0b9b9;
+    border-radius: 8px;
+    line-height: 1.3;
+    margin-top: 10px;
+    width: min-content;
+    min-width: 120px;
+    min-height: 60px;
+    padding: 15px;
+    position: relative;
+}
+
+.main_speech-bubble p {
+    margin: 0 0 10px;
+}
+.speech-bubble p {
+    margin: 0 0 10px;
+}
+
+.main_speech-bubble::after {
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid rgb(69, 99, 189);
+    bottom: 0px;
+    content: "";
+    position: absolute;
+    right: -8px;
+}
+.speech-bubble::after {
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid #f0b9b9;
+    bottom: 0px;
+    content: "";
+    position: absolute;
+    left: -8px;
+}
+
+.chatContainer .singleChat img {
+    max-width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    border: 0.5px solid #bdc7d8;
+    background-color: white;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.chatContainer h1 {
+    font-size: 30px;
+}
+
+.chatContainer h2 {
+    font-size: 13px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.chatContainer p.main_msgDate {
+    position: absolute;
+    font-size: 11px;
+    font-style: italic;
+    bottom: -5px;
+    right: 15px;
+}
+.chatContainer p.msgDate {
+    position: absolute;
+    font-size: 11px;
+    font-style: italic;
+    bottom: -5px;
+    right: 15px;
+}
+
+.chatContainer div.chatInput {
+    position: relative;
+    background-color: rgb(47, 127, 222);
+    width: 100%;
+    height: 118px;
+    border: #bdc7d8 solid 1px;
+    border-radius: 3px;
+}
+
+.chatContainer #chatTextArea {
+    background-color: white;
+    font-family: sans-serif;
+    width: 100%;
+    height: 75px;
+    resize: none;
+    text-indent: 10px;
+    padding-top: 8px;
+    border: none;
+}
+
+.chatContainer .chatEnter {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    bottom: 5px;
+    right: 12px;
+    width: 100px;
+    color: white;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+}
+.chatEnter:hover {
+    transition: 0.3s ease;
+    background-color: #dfd7ac;
+}
+.chatContainer .emoji {
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    bottom: 7px;
+    left: 100px;
+    width: 80px;
+    color: white;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+}
+
+.chatContainer .emoji:hover {
+    transition: 0.3s ease;
+    background-color: #dfd7ac;
+}
+.chatContainer .separatorChatPost {
+    position: absolute;
+    left: -12px;
+    top: 3px;
+    width: 1px;
+    height: 25px;
+    border: #b2bdc8 solid 1px
+}
+
+.chatContainer .enterChatMessage {
+    width: 26px;
+    height: 26px;
+    background: url("/reply-button.png") no-repeat;
+    background-size: 26px;
+    background-color: transparent;
+}
+
+/* ===========Builder part=====================*/
+.hardwareListHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+/*     border: 1px dashed black; */
+
 }
 
 /* ----------MEDIA QUERIES SITEWIDE BELOW-------- */

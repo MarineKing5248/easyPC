@@ -118,6 +118,10 @@ export default class App extends React.Component {
             </nav>
           </header>
           <section className="appBody">
+            {/* builder */}
+            <Route exact path="/builder" component={Builder} />
+            {/* CHAT COMPONENT*/}
+            <Route exact path="/chat" component={Chat} />
             <div className="centerHolder">
               {/* PROFILE PIC */}
               <Route
@@ -146,10 +150,6 @@ export default class App extends React.Component {
               {/* ONLINE USERS*/}
               <Route exact path="/online" component={Online} />
 
-              {/* CHAT COMPONENT*/}
-              <Route exact path="/chat" component={Chat} />
-              {/* builder */}
-              <Route exact path="/builder" component={Builder} />
               {/* UPLOADER(HIDDEN)*/}
               {this.state.modalVisible && (
                 <Uploader
@@ -160,18 +160,6 @@ export default class App extends React.Component {
               )}
             </div>
           </section>
-          <footer>
-            <div className="footerCenterHolder">
-              <p>
-                © 2018 easyPC Studio | All Rights Reserved | +49 176 8083 7305 |
-                liuxiao5248@gmail.com | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </p>
-              {"    "}
-              <Link to="/contact" style={{ color: "white" }}>
-                Contact us!
-              </Link>
-            </div>
-          </footer>
         </div>
       </BrowserRouter>
     );

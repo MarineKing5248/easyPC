@@ -31,7 +31,6 @@ export default function Welcome() {
               />
               <h1>Welcome to easyPC</h1>
               <h1>Build your own PCsystem!</h1>
-              <div className="homepageCanvas" />
             </div>
             <div className="formHolder">
               <div>
@@ -50,13 +49,14 @@ export default function Welcome() {
         <footer>
           <div className="footerCenterHolder">
             <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               © 2018 easyPC Studio | All Rights Reserved | +49 176 8083 7305 |
               liuxiao5248@gmail.com | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link to="/contact" style={{ color: "white" }}>
+                Contact us!
+              </Link>
             </p>
             {"    "}
-            <Link to="/contact" style={{ color: "white" }}>
-              Contact us!
-            </Link>
           </div>
         </footer>
       </div>

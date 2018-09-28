@@ -36,7 +36,7 @@ class Onlinesw extends React.Component {
       <section className="onlineContainer_sw">
         <div className="outerWidth_sw">
           <img id="onlineIcon_sw" src="/online_users.png" />
-          <h1>Currently Online Experts</h1>
+          <h3>Currently Online Experts</h3>
           <div className="onlineUsers_sw">
             {this.props.onlineUsers.length > 1 ? onlineUsersElem : badNews}
           </div>
